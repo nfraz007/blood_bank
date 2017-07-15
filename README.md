@@ -27,6 +27,12 @@ A simple blood bank project.
 * Select this database and click on **import** section. select this file : **C://xampp/htdocs/blood_bank/sql/blood_bank.sql**, and hit OK. It will create all the relevant table for this project.
 * Now everything is set. Open your browser any type this : **localhost/blood_bank**
 
+# ER diagram
+* Entity relationship diagram of this project
+
+![er_diagram](snapshot/blood_bank_er.jpg)
+
+
 # Snapshot
 * Landing page where no login is required. Any one can access this page. If a user is logged-in then after clicking the request button, the request will be sent to the hospital. If Hospital is logged-in then request button will be disabled for them. And if no one is logged-in, then after clicking on request button, you will be redirected to login page.
 
