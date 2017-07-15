@@ -19,7 +19,7 @@ A simple blood bank project which was asked in my internshala job assessment tes
 * Software : Xampp, Any browser
 
 # Setup and Installation
-* Download the zip file this directory.
+* Download the zip file of this directory.
 * Copy the file into your xampp htdocs location. by default the location is **C://xampp/htdocs**
 * Open the xampp controller and start Apache and Mysql
 * Open any browser any type **localhost/phpmyadmin** in the URL
@@ -28,7 +28,7 @@ A simple blood bank project which was asked in my internshala job assessment tes
 * Now everything is set. Open your browser any type this : **localhost/blood_bank**
 
 # Snapshot
-* Landing page where no login require. Any one can access this page. If a user is logged-in then after clicking the request button the request will send to the hospital. If Hospital is logged-in then request button will be disabled for them. And if no one is logged-in the after clicking on request button, you will redirected to login page.
+* Landing page where no login is required. Any one can access this page. If a user is logged-in then after clicking the request button, the request will be sent to the hospital. If Hospital is logged-in then request button will be disabled for them. And if no one is logged-in, then after clicking on request button, you will be redirected to login page.
 
 ![index](snapshot/index.JPG)
 
@@ -40,10 +40,10 @@ A simple blood bank project which was asked in my internshala job assessment tes
 
 ![registeration for Users](snapshot/register_user.JPG)
 
-* This is dashboard for hospitals which is specifically accessable for them. Here Hospital can see their blood stock. They can add or update the blood stock very easily. Here they can also see the list of user who request for the blood samples. They can see the contact detail of the user and contact them by their mobile number.
+* This is dashboard for hospitals which is specifically accessible for them. Here hospitals can see their blood's stock. They can add or update the blood stock very easily. Here they can also see the list of users who have requested for the blood samples. They can see the contact details of the users and contact them by their mobile number.
 
 ![dashboard for hospital](snapshot/dashboard.JPG)
 
-* If a user want 100 ml A+ blood, then user can filter the landing page and request with all blood bank which have 100 ml of A+ blood.
+* If a user wants 100 ml A+ blood, then the user can apply filter in the landing page and request with the blood bank which have 100 ml of A+ blood.
 
 ![request blood](snapshot/index_request.JPG)
