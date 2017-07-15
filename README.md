@@ -1,5 +1,5 @@
 # Blood Bank
-A simple blood bank project which was asked in my internshala job assessment test. 
+A simple blood bank project. 
 
 # Problem Statement
 1) Assume you are designing a real-life system, that will be used by real users.
