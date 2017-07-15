@@ -29,12 +29,21 @@ A simple blood bank project which was asked in my internshala job assessment tes
 
 # Snapshot
 * Landing page where no login require. Any one can access this page. If a user is logged-in then after clicking the request button the request will send to the hospital. If Hospital is logged-in then request button will be disabled for them. And if no one is logged-in the after clicking on request button, you will redirected to login page.
+
 ![index](snapshot/index.JPG)
+
 * This is the registration for Hospitals.
+
 ![registeration for hospital](snapshot/register_hospital.JPG)
+
 * This is the registration for Users/Recievers.
+
 ![registeration for Users](snapshot/register_user.JPG)
+
 * This is dashboard for hospitals which is specifically accessable for them. Here Hospital can see their blood stock. They can add or update the blood stock very easily. Here they can also see the list of user who request for the blood samples. They can see the contact detail of the user and contact them by their mobile number.
+
 ![dashboard for hospital](snapshot/dashboard.JPG)
+
 * If a user want 100 ml A+ blood, then user can filter the landing page and request with all blood bank which have 100 ml of A+ blood.
+
 ![request blood](snapshot/index_request.JPG)
