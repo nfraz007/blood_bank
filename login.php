@@ -8,11 +8,11 @@
 				<h3>For Reciever/User</h3>
 				<div class="form-group">
 				    <label for="user_username">Username</label>
-				    <input type="text" class="form-control user_login" id="user_username" placeholder="Enter username">
+				    <input type="text" class="form-control user_login" id="user_username" placeholder="Enter username" value="user">
 				</div>
 				<div class="form-group">
 				    <label for="user_password">Password</label>
-				    <input type="password" class="form-control user_login" id="user_password" placeholder="Password must be atleast 6 characters long">
+				    <input type="password" class="form-control user_login" id="user_password" placeholder="Password must be atleast 6 characters long" value="123456">
 				</div>
 				<a class="btn btn-outline-primary" href="#" id="user_login_btn">Login as Reciever</a>
 			</div>
@@ -22,11 +22,11 @@
 				<h3>For Hospital</h3>
 				<div class="form-group">
 				    <label for="hospital_username">Username</label>
-				    <input type="text" class="form-control hospital_login" id="hospital_username" placeholder="Enter username">
+				    <input type="text" class="form-control hospital_login" id="hospital_username" placeholder="Enter username" value="admin">
 				</div>
 				<div class="form-group">
 				    <label for="hospital_password">Password</label>
-				    <input type="password" class="form-control hospital_login" id="hospital_password" placeholder="Password must be atleast 6 characters long">
+				    <input type="password" class="form-control hospital_login" id="hospital_password" placeholder="Password must be atleast 6 characters long" value="123456">
 				</div>
 				<a class="btn btn-outline-primary" href="#" id="hospital_login_btn">Login as Bank</a>
 			</div>

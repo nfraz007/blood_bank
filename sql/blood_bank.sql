@@ -57,6 +57,9 @@ CREATE TABLE `bb_hospital` (
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='store the details of hospital data';
 
+INSERT INTO `bb_hospital` (`hospital_id`, `hospital_name`, `username`, `password`, `mobile`, `datetime`, `status`) VALUES
+(2, 'Admin', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 9748277144, '2018-08-15 14:09:48', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -104,6 +107,9 @@ CREATE TABLE `bb_user` (
   `datetime` datetime NOT NULL,
   `status` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='all data of reciever';
+
+INSERT INTO `bb_user` (`user_id`, `blood_id`, `first_name`, `last_name`, `username`, `password`, `mobile`, `datetime`, `status`) VALUES
+(3, 1, 'user', 'user', 'user', 'e10adc3949ba59abbe56e057f20f883e', 9748277144, '2018-08-15 14:09:32', 1);
 
 --
 -- Indexes for dumped tables
