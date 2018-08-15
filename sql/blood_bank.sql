@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 15, 2017 at 08:29 AM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Host: localhost
+-- Generation Time: Aug 15, 2018 at 01:39 PM
+-- Server version: 5.7.23-0ubuntu0.16.04.1
+-- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `blood_bank`
@@ -23,10 +17,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blood`
+-- Table structure for table `bb_blood`
 --
 
-CREATE TABLE `blood` (
+CREATE TABLE `bb_blood` (
   `blood_id` int(11) NOT NULL,
   `blood` varchar(255) NOT NULL,
   `detail` varchar(255) NOT NULL,
@@ -34,10 +28,10 @@ CREATE TABLE `blood` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='data of all available blood group';
 
 --
--- Dumping data for table `blood`
+-- Dumping data for table `bb_blood`
 --
 
-INSERT INTO `blood` (`blood_id`, `blood`, `detail`, `status`) VALUES
+INSERT INTO `bb_blood` (`blood_id`, `blood`, `detail`, `status`) VALUES
 (1, 'A+', '', 1),
 (2, 'A-', '', 1),
 (3, 'B+', '', 1),
@@ -50,10 +44,10 @@ INSERT INTO `blood` (`blood_id`, `blood`, `detail`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hospital`
+-- Table structure for table `bb_hospital`
 --
 
-CREATE TABLE `hospital` (
+CREATE TABLE `bb_hospital` (
   `hospital_id` int(11) NOT NULL,
   `hospital_name` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
@@ -66,10 +60,10 @@ CREATE TABLE `hospital` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `request`
+-- Table structure for table `bb_request`
 --
 
-CREATE TABLE `request` (
+CREATE TABLE `bb_request` (
   `request_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `hospital_id` int(11) NOT NULL,
@@ -82,10 +76,10 @@ CREATE TABLE `request` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `stock`
+-- Table structure for table `bb_stock`
 --
 
-CREATE TABLE `stock` (
+CREATE TABLE `bb_stock` (
   `stock_id` int(11) NOT NULL,
   `hospital_id` int(11) NOT NULL,
   `blood_id` int(11) NOT NULL,
@@ -96,10 +90,10 @@ CREATE TABLE `stock` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `bb_user`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `bb_user` (
   `user_id` int(11) NOT NULL,
   `blood_id` int(11) NOT NULL,
   `first_name` varchar(255) NOT NULL,
@@ -116,33 +110,33 @@ CREATE TABLE `user` (
 --
 
 --
--- Indexes for table `blood`
+-- Indexes for table `bb_blood`
 --
-ALTER TABLE `blood`
+ALTER TABLE `bb_blood`
   ADD PRIMARY KEY (`blood_id`);
 
 --
--- Indexes for table `hospital`
+-- Indexes for table `bb_hospital`
 --
-ALTER TABLE `hospital`
+ALTER TABLE `bb_hospital`
   ADD PRIMARY KEY (`hospital_id`);
 
 --
--- Indexes for table `request`
+-- Indexes for table `bb_request`
 --
-ALTER TABLE `request`
+ALTER TABLE `bb_request`
   ADD PRIMARY KEY (`request_id`);
 
 --
--- Indexes for table `stock`
+-- Indexes for table `bb_stock`
 --
-ALTER TABLE `stock`
+ALTER TABLE `bb_stock`
   ADD PRIMARY KEY (`stock_id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `bb_user`
 --
-ALTER TABLE `user`
+ALTER TABLE `bb_user`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -150,30 +144,27 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `blood`
+-- AUTO_INCREMENT for table `bb_blood`
 --
-ALTER TABLE `blood`
+ALTER TABLE `bb_blood`
   MODIFY `blood_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `hospital`
+-- AUTO_INCREMENT for table `bb_hospital`
 --
-ALTER TABLE `hospital`
-  MODIFY `hospital_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `bb_hospital`
+  MODIFY `hospital_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `request`
+-- AUTO_INCREMENT for table `bb_request`
 --
-ALTER TABLE `request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `bb_request`
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
--- AUTO_INCREMENT for table `stock`
+-- AUTO_INCREMENT for table `bb_stock`
 --
-ALTER TABLE `stock`
-  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `bb_stock`
+  MODIFY `stock_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `bb_user`
 --
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `bb_user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;

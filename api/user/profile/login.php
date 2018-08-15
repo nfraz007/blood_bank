@@ -1,5 +1,5 @@
 <?php
-require_once '../../../include/config.php';
+require_once __DIR__.'/../../../include/config.php';
 
 $output="";
 $username=filter_var($_REQUEST["username"], FILTER_SANITIZE_STRING);
@@ -8,7 +8,7 @@ $password=md5($_REQUEST["password"]);
 if(!empty($username) && !empty($_REQUEST["password"])){
 	if(strlen($username)>=4){
 		if(strlen($_REQUEST["password"])>=6 && strlen($_REQUEST["password"])<=12){
-			$query="select * from `user` where username='{$username}' and password='{$password}'";
+			$query="select * from ".prefix("user")." where username='{$username}' and password='{$password}'";
 			$result=mysqli_query($con,$query);
 			if(mysqli_num_rows($result)==1){
 				$row=mysqli_fetch_assoc($result);

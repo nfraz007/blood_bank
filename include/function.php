@@ -198,7 +198,7 @@ function loginCheckHospitalRedirect()
 function checkHospital($username){
     global $con;
 
-    $query="select count(*) as count from hospital where username='{$username}'";
+    $query="select count(*) as count from ".prefix("hospital")." where username='{$username}'";
     $result=mysqli_query($con,$query);
     if($result){
         $row=mysqli_fetch_assoc($result);
@@ -212,7 +212,7 @@ function checkHospital($username){
 function checkHospitalId($hospital_id){
     global $con;
 
-    $query="select count(*) as count from hospital where hospital_id='{$hospital_id}'";
+    $query="select count(*) as count from ".prefix("hospital")." where hospital_id='{$hospital_id}'";
     $result=mysqli_query($con,$query);
     if($result){
         $row=mysqli_fetch_assoc($result);
@@ -226,7 +226,7 @@ function checkHospitalId($hospital_id){
 function getUsernameHospital($id){
     global $con;
 
-    $query="select username from hospital where hospital_id='{$id}'";
+    $query="select username from ".prefix("hospital")." where hospital_id='{$id}'";
     $result=mysqli_query($con,$query);
     if(mysqli_num_rows($result)==1){
         $row=mysqli_fetch_assoc($result);
@@ -241,7 +241,7 @@ function insert_hospital($username,$hospital_name,$password,$mobile){
 
     $datetime=date("Y-m-d H:i:s");
     $status=1;
-    $query="insert into `hospital` (username,hospital_name,password,mobile,datetime,status) values ('{$username}','{$hospital_name}','{$password}','{$mobile}','{$datetime}','{$status}') ";
+    $query="insert into ".prefix("hospital")." (username,hospital_name,password,mobile,datetime,status) values ('{$username}','{$hospital_name}','{$password}','{$mobile}','{$datetime}','{$status}') ";
     $result=mysqli_query($con,$query);
     if($result) return true;
     else return false;
@@ -250,7 +250,7 @@ function insert_hospital($username,$hospital_name,$password,$mobile){
 function checkUser($username){
     global $con;
 
-    $query="select count(*) as count from user where username='{$username}'";
+    $query="select count(*) as count from ".prefix("user")." where username='{$username}'";
     $result=mysqli_query($con,$query);
     if($result){
         $row=mysqli_fetch_assoc($result);
@@ -264,7 +264,7 @@ function checkUser($username){
 function getUsernameUser($id){
     global $con;
 
-    $query="select username from user where user_id='{$id}'";
+    $query="select username from ".prefix("user")." where user_id='{$id}'";
     $result=mysqli_query($con,$query);
     if(mysqli_num_rows($result)==1){
         $row=mysqli_fetch_assoc($result);
@@ -279,7 +279,7 @@ function insert_user($username,$first_name,$last_name,$password,$mobile,$blood_i
 
     $datetime=date("Y-m-d H:i:s");
     $status=1;
-    $query="insert into `user` (username,first_name,last_name,password,mobile,blood_id,datetime,status) values ('{$username}','{$first_name}','{$last_name}','{$password}','{$mobile}','{$blood_id}','{$datetime}','{$status}') ";
+    $query="insert into ".prefix("user")." (username,first_name,last_name,password,mobile,blood_id,datetime,status) values ('{$username}','{$first_name}','{$last_name}','{$password}','{$mobile}','{$blood_id}','{$datetime}','{$status}') ";
     $result=mysqli_query($con,$query);
     if($result) return true;
     else return false;
@@ -288,7 +288,7 @@ function insert_user($username,$first_name,$last_name,$password,$mobile,$blood_i
 function checkBlood($blood_id){
     global $con;
 
-    $query="select count(*) as count from blood where blood_id='{$blood_id}'";
+    $query="select count(*) as count from ".prefix("blood")." where blood_id='{$blood_id}'";
     $result=mysqli_query($con,$query);
     if($result){
         $row=mysqli_fetch_assoc($result);
@@ -303,7 +303,7 @@ function bloodList(){
     global $con;
 
     $blood=array();
-    $query="select * from `blood` where `status`='1'";
+    $query="select * from ".prefix('blood')." where `status`='1'";
     $result=mysqli_query($con,$query);
     if(mysqli_num_rows($result)>0){
         $output='{"status":"success","blood":';
@@ -320,7 +320,7 @@ function bloodList(){
 function checkStock($hospital_id,$blood_id,$volume){
     global $con;
 
-    $query="select volume from stock where hospital_id='{$hospital_id}' and blood_id='{$blood_id}'";
+    $query="select volume from ".prefix("stock")." where hospital_id='{$hospital_id}' and blood_id='{$blood_id}'";
     $result=mysqli_query($con,$query);
     if(mysqli_num_rows($result)==1){
         $row=mysqli_fetch_assoc($result);
@@ -335,7 +335,7 @@ function stockList($obj){
     global $con;
 
     $stock=array();
-    $query="select s.stock_id,s.hospital_id,h.hospital_name,s.blood_id,b.blood,b.detail,s.volume from `stock` s left join `blood` b on s.blood_id=b.blood_id left join hospital h on s.hospital_id=h.hospital_id where ";
+    $query="select s.stock_id,s.hospital_id,h.hospital_name,s.blood_id,b.blood,b.detail,s.volume from ".prefix("stock")." s left join ".prefix("blood")." b on s.blood_id=b.blood_id left join ".prefix("hospital")." h on s.hospital_id=h.hospital_id where ";
 
     if(isset($obj->status) && $obj->status!=""){
      $query.= "s.`status` = ".$obj->status." and ";
@@ -392,14 +392,14 @@ function stockList($obj){
 function stockInsert($hospital_id,$blood_id,$volume){
     global $con;
 
-    $query="select * from stock where hospital_id='{$hospital_id}' and blood_id='{$blood_id}'";
+    $query="select * from ".prefix("stock")." where hospital_id='{$hospital_id}' and blood_id='{$blood_id}'";
     $result=mysqli_query($con,$query);
     $count=mysqli_num_rows($result);
     if($count==1){
         //stock is present, so update it
         $row=mysqli_fetch_assoc($result);
         $stock_id=$row["stock_id"];
-        $query="update stock set volume=volume+{$volume} where stock_id='{$stock_id}'";
+        $query="update ".prefix("stock")." set volume=volume+{$volume} where stock_id='{$stock_id}'";
         $result=mysqli_query($con,$query);
         if($result){
             return true;
@@ -409,7 +409,7 @@ function stockInsert($hospital_id,$blood_id,$volume){
     }elseif($count==0){
         // stock is not present, so insert
         $status=1;
-        $query="insert into stock (hospital_id,blood_id,volume,status) values ('{$hospital_id}','{$blood_id}','{$volume}','{$status}')";
+        $query="insert into ".prefix("stock")." (hospital_id,blood_id,volume,status) values ('{$hospital_id}','{$blood_id}','{$volume}','{$status}')";
         $result=mysqli_query($con,$query);
         if($result){
             return true;
@@ -427,7 +427,7 @@ function requestInsert($user_id,$hospital_id,$blood_id,$volume){
 
     $datetime=date("Y-m-d H:i:s");
     $status=1;
-    $query="insert into request (user_id,hospital_id,blood_id,volume,datetime,status) values ('{$user_id}','{$hospital_id}','{$blood_id}','{$volume}','{$datetime}','{$status}')";
+    $query="insert into ".prefix("request")." (user_id,hospital_id,blood_id,volume,datetime,status) values ('{$user_id}','{$hospital_id}','{$blood_id}','{$volume}','{$datetime}','{$status}')";
     $result=mysqli_query($con,$query);
     if($result){
         return true;
@@ -440,7 +440,7 @@ function requestList($obj){
     global $con,$DATETIME_FORMAT;
 
     $request=array();
-    $query="select r.*,h.hospital_name,h.mobile as hospital_mobile,u.first_name,u.last_name,u.mobile as user_mobile,b.blood from request r left join hospital h on r.hospital_id=h.hospital_id left join user u on r.user_id=u.user_id left join blood b on r.blood_id=b.blood_id where ";
+    $query="select r.*,h.hospital_name,h.mobile as hospital_mobile,u.first_name,u.last_name,u.mobile as user_mobile,b.blood from ".prefix("request")." r left join ".prefix("hospital")." h on r.hospital_id=h.hospital_id left join ".prefix("user")." u on r.user_id=u.user_id left join ".prefix("blood")." b on r.blood_id=b.blood_id where ";
 
     if(isset($obj->status) && $obj->status!=""){
      $query.= "r.`status` = ".$obj->status." and ";
@@ -512,6 +512,10 @@ function crypto($action, $string) {
         $output = openssl_decrypt(base64_decode($string), $encrypt_method, $key, 0, $iv);
     }
     return $output;
+}
+
+function prefix($table = ""){
+    return PREFIX.$table;
 }
 
 ?>
